@@ -13,26 +13,41 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     let updatingLocation = true
-    let latitudeDelta = 0.2
-    let longitudeDelta = 0.2
+    let latitudeDelta = 0.005
+    let longitudeDelta = 0.005
     
     var annotations: [MapPin] = []
     var overlay: MKOverlay?
+    var location = true
+    var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        mapView.delegate = self
+        locationManager.delegate = self
+        UserStore.shared.delegate = self
+        
         mapView.showsUserLocation = true
+        mapView.isZoomEnabled = true
+        mapView.isScrollEnabled = true
         locationManager.startUpdatingLocation()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if !WebServices.shared.userAuthTokenExists() || WebServices.shared.userAuthTokenExpired() {
             performSegue(withIdentifier: "PresentLoginNoAnimation", sender: self)
-        } 
+        } else {
+            let userInfo = User()
+            WebServices.shared.getObject(userInfo, completion: { (user, error) in
+                if let user = user {
+                    UserStore.shared.user = user
+                }
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,16 +55,36 @@ class MapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func loadMap() {
+        if let coordinate = locationManager.location?.coordinate {
+            let checkIn = People(coordinate: coordinate)
+            WebServices.shared.postObject(checkIn, completion: { (object, error) in
+                
+            })
+        }
+        
+        let nearby = People(radiusInMeters: Constants.radius)
+        WebServices.shared.getObjects(nearby) { (objects, error) in
+            if let objects = objects {
+                let oldAnnotations = self.annotations
+                self.annotations = []
+                for people in objects {
+                    let pin = MapPin(people: people)
+                    self.annotations.append(pin)
+                }
+                self.mapView.addAnnotations(self.annotations)
+                self.mapView.removeAnnotations(oldAnnotations)
+            }
+        }
     }
-    */
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(loadMap), userInfo: nil, repeats: true)
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
     @IBAction func logoutTapped(_ sender: Any) {
         UserStore.shared.logout {
             self.performSegue(withIdentifier: "PresentLogin", sender: self)
@@ -73,25 +108,55 @@ extension MapViewController: MKMapViewDelegate {
         if annotation is MKUserLocation {
             return nil
         }
-        let reuseID = "pin"
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID) as? MKPinAnnotationView
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
         if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = false
             pinView!.animatesDrop = false
-            } else {
-            pinView!.annotation =  annotation
+        } else {
+            pinView!.annotation = annotation
         }
-    return pinView
+        
+        return pinView
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let mapPin = view.annotation as? MapPin, let people = mapPin.people, let name = people.userName, let userId = people.userId {
+            let alert = UIAlertController(title: "Catch User", message: "Catch \(name)?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Catch", style: .default, handler: { (action) in
+                let catchPeople = People(userId: userId, radiusInMeters: Constants.radius)
+                WebServices.shared.postObject(catchPeople, completion: { (object, error) in
+                    if let error = error {
+                        self.present(Utils.createAlert(message: error), animated: true, completion: nil)
+                    } else {
+                        self.present(Utils.createAlert(message: "User Caught"), animated: true, completion: nil)
+                    }
+                })
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         self.overlay = overlay
         let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = #colorLiteral(red: 0, green: 0.32836169, blue: 1, alpha: 1)
+        renderer.strokeColor = UIColor.blue
         renderer.lineWidth = 5.0
-        renderer.lineCap = .round
+        renderer.lineCap = CGLineCap.round
         return renderer
     }
 }
 
-
+// MARK: - UserStoreDelegate
+extension MapViewController: UserStoreDelegate {
+    func userLoggedIn() {
+        NotificationCenter.default.addObserver(self, selector: #selector(stopTimer), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(startTimer), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        stopTimer()
+        startTimer()
+    }
+}

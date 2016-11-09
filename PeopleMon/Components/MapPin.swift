@@ -10,8 +10,15 @@ import MapKit
 
 class MapPin: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
+    var people: People?
     
-    init (coordinate: CLLocationCoordinate2D){
-        self.coordinate = coordinate
+    init(people: People) {
+        self.people = people
+        if let latitude = people.latitude, let longitude = people.longitude {
+            self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        } else {
+            self.coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+        }
     }
 }
+

@@ -17,8 +17,8 @@ class People : NetworkModel {
     var userId : String?
     var userName : String?
     var avatarBase64 : String?
-    var  longitude : Int?
-    var  latitude : Int?
+    var  longitude : Double?
+    var  latitude : Double?
     var created : String?
     var  radiusInMeters : Double?
    
@@ -39,21 +39,22 @@ class People : NetworkModel {
         userId = try? json.getString(at: Constants.People.userId)
         userName = try? json.getString(at: Constants.People.userName)
         avatarBase64 = try? json.getString(at: Constants.People.avatarBase64)
-        longitude = try? json.getInt(at: Constants.People.longitude)
-        latitude = try? json.getInt(at: Constants.People.latitude)
+        longitude = try? json.getDouble(at: Constants.People.longitude)
+        latitude = try? json.getDouble(at: Constants.People.latitude)
         created = try? json.getString(at: Constants.People.created)
-    }
-    
-    init(longitude: Int, latitude: Int) {
-        self.longitude = longitude
-        self.latitude = latitude
-        requestType = .userCheckIn
     }
     
     init(radiusInMeters: Double) {
         self.radiusInMeters = radiusInMeters
         requestType = .userNearby
     }
+    
+    init (coordinate: CLLocationCoordinate2D) {
+        self.latitude = coordinate.latitude
+        self.longitude = coordinate.longitude
+        requestType = .userCheckIn
+    }
+    
     init(userId: String, radiusInMeters: Double) {
         self.userId = userId
         self.radiusInMeters = radiusInMeters

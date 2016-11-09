@@ -8,10 +8,23 @@
 
 import Foundation
 
+protocol  UserStoreDelegate: class {
+    func userLoggedIn()
+}
+
 class UserStore {
     // singleton
     static let shared = UserStore()
     private init () {}
+    
+    var user: User? {
+        didSet {
+            if let _ = user {
+                delegate?.userLoggedIn()
+            }
+        }
+    }
+    weak var delegate: UserStoreDelegate?
     
     func login(_ loginUser: User, completion: @escaping (_ success:Bool, _ error: String?) -> Void) {
         

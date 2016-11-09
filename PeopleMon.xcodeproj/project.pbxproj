@@ -22,6 +22,8 @@
 		3507CB961DD257EF00DB8EE1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3507CB951DD257EF00DB8EE1 /* MapKit.framework */; };
 		3507CB981DD2594B00DB8EE1 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB971DD2594B00DB8EE1 /* UserStore.swift */; };
 		3507CB9A1DD26C9100DB8EE1 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB991DD26C9100DB8EE1 /* MapPin.swift */; };
+		3507CB9C1DD372CC00DB8EE1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB9B1DD372CC00DB8EE1 /* ProfileViewController.swift */; };
+		3507CB9E1DD372DE00DB8EE1 /* CaughtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB9D1DD372DE00DB8EE1 /* CaughtViewController.swift */; };
 		35A6EFD21DD00A9400681506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6EFD11DD00A9400681506 /* AppDelegate.swift */; };
 		35A6EFD41DD00A9400681506 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6EFD31DD00A9400681506 /* ViewController.swift */; };
 		35A6EFD91DD00A9400681506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35A6EFD81DD00A9400681506 /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		3507CB951DD257EF00DB8EE1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3507CB971DD2594B00DB8EE1 /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		3507CB991DD26C9100DB8EE1 /* MapPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapPin.swift; path = Components/MapPin.swift; sourceTree = "<group>"; };
+		3507CB9B1DD372CC00DB8EE1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
+		3507CB9D1DD372DE00DB8EE1 /* CaughtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaughtViewController.swift; path = ViewControllers/CaughtViewController.swift; sourceTree = "<group>"; };
 		35A6EFCE1DD00A9400681506 /* PeopleMon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeopleMon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35A6EFD11DD00A9400681506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35A6EFD31DD00A9400681506 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				3507CB8C1DD10C4300DB8EE1 /* LoginViewController.swift */,
 				3507CB8E1DD10D3B00DB8EE1 /* RegisterViewController.swift */,
 				3507CB921DD11B4100DB8EE1 /* MapViewController.swift */,
+				3507CB9B1DD372CC00DB8EE1 /* ProfileViewController.swift */,
+				3507CB9D1DD372DE00DB8EE1 /* CaughtViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3507CB9E1DD372DE00DB8EE1 /* CaughtViewController.swift in Sources */,
 				3507CB8D1DD10C4300DB8EE1 /* LoginViewController.swift in Sources */,
 				3507CB751DD00EE800DB8EE1 /* WebServicesExtension.swift in Sources */,
 				3507CB9A1DD26C9100DB8EE1 /* MapPin.swift in Sources */,
@@ -314,6 +321,7 @@
 				3507CB731DD00E0A00DB8EE1 /* WebServices.swift in Sources */,
 				3507CB8F1DD10D3B00DB8EE1 /* RegisterViewController.swift in Sources */,
 				3507CB7A1DD00F6E00DB8EE1 /* Constants.swift in Sources */,
+				3507CB9C1DD372CC00DB8EE1 /* ProfileViewController.swift in Sources */,
 				3507CB931DD11B4100DB8EE1 /* MapViewController.swift in Sources */,
 				3507CB981DD2594B00DB8EE1 /* UserStore.swift in Sources */,
 			);

@@ -19,6 +19,7 @@ struct Constants {
     public static let authToken = "authToken"
     static let apiKey = "iOS301november2016"
     static let apikey = "ApiKey"
+    static let radius = 100.0
     
     // Step 19: Add Notification constant
     static let newExpensesFound = "NewExpensesFound"

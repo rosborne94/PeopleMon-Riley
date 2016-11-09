@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import Freddy
+import MapKit
 
 // Just a test object to excercise the network stack
 class People : NetworkModel {
@@ -19,13 +20,14 @@ class People : NetworkModel {
     var  longitude : Int?
     var  latitude : Int?
     var created : String?
-    var  caughtUserId : String?
-    var  radiusInMeters : Int?
+    var  radiusInMeters : Double?
    
     // Request Type
     enum RequestType {
         case userCheckIn
+        case userNearby
         case userCatch
+        case userCaught
     }
     var requestType = RequestType.userCheckIn
     
@@ -48,15 +50,24 @@ class People : NetworkModel {
         requestType = .userCheckIn
     }
     
-    init(caughtUserId: String, radiusInMeters: Int) {
-        self.caughtUserId = caughtUserId
+    init(radiusInMeters: Double) {
+        self.radiusInMeters = radiusInMeters
+        requestType = .userNearby
+    }
+    init(userId: String, radiusInMeters: Double) {
+        self.userId = userId
         self.radiusInMeters = radiusInMeters
         requestType = .userCatch
     }
     
     // Always return HTTP.GET
     func method() -> Alamofire.HTTPMethod {
-        return .post
+        switch requestType {
+        case .userNearby, .userCaught:
+            return .get
+        default:
+            return .post
+        }
     }
     
     // A sample path to a single post
@@ -64,8 +75,12 @@ class People : NetworkModel {
         switch requestType {
         case .userCheckIn:
             return "/v1/User/CheckIn"
+        case .userNearby:
+            return "/v1/User/Nearby"
         case .userCatch:
             return "/v1/User/UserCatch"
+        case .userCaught:
+            return "/v1/User/Caught"
         }
     }
     
@@ -75,12 +90,16 @@ class People : NetworkModel {
         var params: [String: AnyObject] = [:]
         
         switch requestType {
+        case .userNearby:
+            params[Constants.People.radiusInMeters] = radiusInMeters as AnyObject?
         case .userCatch:
-            params[Constants.People.caughtUserId] = caughtUserId as AnyObject?
+            params[Constants.People.caughtUserId] = userId as AnyObject?
             params[Constants.People.radiusInMeters] = radiusInMeters as AnyObject?
         case .userCheckIn:
-            params[Constants.People.longitude] = longitude as AnyObject?
             params[Constants.People.latitude] = latitude as AnyObject?
+            params[Constants.People.longitude] = longitude as AnyObject?
+        case .userCaught:
+            break
         }
         
         return params

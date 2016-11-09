@@ -2,8 +2,8 @@
 //  UserStore.swift
 //  PeopleMon
 //
-//  Created by Riley Osborne on 11/2/16.
-//  Copyright © 2016 David  Bowen. All rights reserved.
+//  Created by Riley Osborne on 11/8/16.
+//  Copyright © 2016 Riley Osborne. All rights reserved.
 //
 
 import Foundation
@@ -41,9 +41,3 @@ class UserStore {
         completion()
     }
 }
-
-
-
-
-
-

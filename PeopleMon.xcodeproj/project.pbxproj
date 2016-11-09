@@ -12,15 +12,16 @@
 		3507CB771DD00F1500DB8EE1 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB761DD00F1500DB8EE1 /* NetworkModel.swift */; };
 		3507CB7A1DD00F6E00DB8EE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB791DD00F6E00DB8EE1 /* Constants.swift */; };
 		3507CB7C1DD019AA00DB8EE1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB7B1DD019AA00DB8EE1 /* Utils.swift */; };
-		3507CB7E1DD01A0200DB8EE1 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB7D1DD01A0200DB8EE1 /* UserStore.swift */; };
 		3507CB811DD01A4300DB8EE1 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB801DD01A4300DB8EE1 /* People.swift */; };
-		3507CB831DD0D6DA00DB8EE1 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB821DD0D6DA00DB8EE1 /* Conversation.swift */; };
 		3507CB851DD0E16900DB8EE1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB841DD0E16900DB8EE1 /* User.swift */; };
 		3507CB881DD1010200DB8EE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3507CB871DD1010200DB8EE1 /* Main.storyboard */; };
 		3507CB8A1DD1011800DB8EE1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3507CB891DD1011800DB8EE1 /* Login.storyboard */; };
 		3507CB8D1DD10C4300DB8EE1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB8C1DD10C4300DB8EE1 /* LoginViewController.swift */; };
 		3507CB8F1DD10D3B00DB8EE1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB8E1DD10D3B00DB8EE1 /* RegisterViewController.swift */; };
 		3507CB931DD11B4100DB8EE1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB921DD11B4100DB8EE1 /* MapViewController.swift */; };
+		3507CB961DD257EF00DB8EE1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3507CB951DD257EF00DB8EE1 /* MapKit.framework */; };
+		3507CB981DD2594B00DB8EE1 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB971DD2594B00DB8EE1 /* UserStore.swift */; };
+		3507CB9A1DD26C9100DB8EE1 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3507CB991DD26C9100DB8EE1 /* MapPin.swift */; };
 		35A6EFD21DD00A9400681506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6EFD11DD00A9400681506 /* AppDelegate.swift */; };
 		35A6EFD41DD00A9400681506 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A6EFD31DD00A9400681506 /* ViewController.swift */; };
 		35A6EFD91DD00A9400681506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35A6EFD81DD00A9400681506 /* Assets.xcassets */; };
@@ -33,15 +34,17 @@
 		3507CB761DD00F1500DB8EE1 /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkModel.swift; path = Network/NetworkModel.swift; sourceTree = "<group>"; };
 		3507CB791DD00F6E00DB8EE1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Components/Constants.swift; sourceTree = "<group>"; };
 		3507CB7B1DD019AA00DB8EE1 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Components/Utils.swift; sourceTree = "<group>"; };
-		3507CB7D1DD01A0200DB8EE1 /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserStore.swift; path = Components/UserStore.swift; sourceTree = "<group>"; };
 		3507CB801DD01A4300DB8EE1 /* People.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = People.swift; path = Models/People.swift; sourceTree = "<group>"; };
-		3507CB821DD0D6DA00DB8EE1 /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Conversation.swift; path = Models/Conversation.swift; sourceTree = "<group>"; };
 		3507CB841DD0E16900DB8EE1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		3507CB871DD1010200DB8EE1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		3507CB891DD1011800DB8EE1 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
 		3507CB8C1DD10C4300DB8EE1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		3507CB8E1DD10D3B00DB8EE1 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ViewControllers/RegisterViewController.swift; sourceTree = "<group>"; };
 		3507CB921DD11B4100DB8EE1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ViewControllers/MapViewController.swift; sourceTree = "<group>"; };
+		3507CB941DD2162C00DB8EE1 /* PeopleMon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PeopleMon.entitlements; sourceTree = "<group>"; };
+		3507CB951DD257EF00DB8EE1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3507CB971DD2594B00DB8EE1 /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		3507CB991DD26C9100DB8EE1 /* MapPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapPin.swift; path = Components/MapPin.swift; sourceTree = "<group>"; };
 		35A6EFCE1DD00A9400681506 /* PeopleMon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeopleMon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35A6EFD11DD00A9400681506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35A6EFD31DD00A9400681506 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3507CB961DD257EF00DB8EE1 /* MapKit.framework in Frameworks */,
 				F6B85F7168664BD5A2ABA3FC /* Pods_PeopleMon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,7 +92,8 @@
 			children = (
 				3507CB791DD00F6E00DB8EE1 /* Constants.swift */,
 				3507CB7B1DD019AA00DB8EE1 /* Utils.swift */,
-				3507CB7D1DD01A0200DB8EE1 /* UserStore.swift */,
+				3507CB971DD2594B00DB8EE1 /* UserStore.swift */,
+				3507CB991DD26C9100DB8EE1 /* MapPin.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -97,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				3507CB801DD01A4300DB8EE1 /* People.swift */,
-				3507CB821DD0D6DA00DB8EE1 /* Conversation.swift */,
 				3507CB841DD0E16900DB8EE1 /* User.swift */,
 			);
 			name = Models;
@@ -143,6 +147,7 @@
 		35A6EFD01DD00A9400681506 /* PeopleMon */ = {
 			isa = PBXGroup;
 			children = (
+				3507CB941DD2162C00DB8EE1 /* PeopleMon.entitlements */,
 				3507CB8B1DD10C1C00DB8EE1 /* ViewControllers */,
 				3507CB861DD100D700DB8EE1 /* Storyboards */,
 				3507CB7F1DD01A2900DB8EE1 /* Models */,
@@ -159,6 +164,7 @@
 		90B8223E5877E1A3494CB9C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3507CB951DD257EF00DB8EE1 /* MapKit.framework */,
 				3AB3627CB322852C0DA89CCC /* Pods_PeopleMon.framework */,
 			);
 			name = Frameworks;
@@ -201,6 +207,14 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 595UP79HPV;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -290,6 +304,7 @@
 			files = (
 				3507CB8D1DD10C4300DB8EE1 /* LoginViewController.swift in Sources */,
 				3507CB751DD00EE800DB8EE1 /* WebServicesExtension.swift in Sources */,
+				3507CB9A1DD26C9100DB8EE1 /* MapPin.swift in Sources */,
 				3507CB851DD0E16900DB8EE1 /* User.swift in Sources */,
 				35A6EFD41DD00A9400681506 /* ViewController.swift in Sources */,
 				35A6EFD21DD00A9400681506 /* AppDelegate.swift in Sources */,
@@ -297,11 +312,10 @@
 				3507CB771DD00F1500DB8EE1 /* NetworkModel.swift in Sources */,
 				3507CB811DD01A4300DB8EE1 /* People.swift in Sources */,
 				3507CB731DD00E0A00DB8EE1 /* WebServices.swift in Sources */,
-				3507CB7E1DD01A0200DB8EE1 /* UserStore.swift in Sources */,
 				3507CB8F1DD10D3B00DB8EE1 /* RegisterViewController.swift in Sources */,
-				3507CB831DD0D6DA00DB8EE1 /* Conversation.swift in Sources */,
 				3507CB7A1DD00F6E00DB8EE1 /* Constants.swift in Sources */,
 				3507CB931DD11B4100DB8EE1 /* MapViewController.swift in Sources */,
+				3507CB981DD2594B00DB8EE1 /* UserStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +421,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PeopleMon/PeopleMon.entitlements;
 				DEVELOPMENT_TEAM = 595UP79HPV;
 				INFOPLIST_FILE = PeopleMon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -422,6 +437,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PeopleMon/PeopleMon.entitlements;
 				DEVELOPMENT_TEAM = 595UP79HPV;
 				INFOPLIST_FILE = PeopleMon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

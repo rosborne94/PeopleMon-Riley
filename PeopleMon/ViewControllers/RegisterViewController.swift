@@ -40,7 +40,7 @@ class RegisterViewController: UIViewController {
     //MARK: - IBAction
     @IBAction func registerButton(_ sender: UIButton) {
         //Validate user input
-        guard let username = usernameTextField.text , username != "" else {
+        guard let fullName = usernameTextField.text , fullName != "" else {
             let alert = Utils.createAlert("Login Error", message: "Please provide a username", dismissButtonTitle: "Close")
             present(alert, animated: true, completion: nil)
             return
@@ -65,7 +65,7 @@ class RegisterViewController: UIViewController {
         // Going to go ahead with the register
         MBProgressHUD.showAdded(to: view, animated: true)
         
-        let user = User(email: email, password: password, username: username)
+        let user = User(email: email, password: password, fullName: fullName)
         
         UserStore.shared.register(user) { (success, error) in
             MBProgressHUD.hide(for: self.view, animated: true)

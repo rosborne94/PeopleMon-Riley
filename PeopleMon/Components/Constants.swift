@@ -17,7 +17,8 @@ struct Constants {
     public static let keychainIdentifier = "PeopleMonKeychain"
     public static let authTokenExpireDate = "authTokenExpireDate"
     public static let authToken = "authToken"
-    public static let apiKey = "iOS301november2016"
+    static let apiKey = "iOS301november2016"
+    static let apikey = "ApiKey"
     
     // Step 19: Add Notification constant
     static let newExpensesFound = "NewExpensesFound"
@@ -44,10 +45,10 @@ struct Constants {
  "ConfirmPassword": "string"
  }*/
     // Step 9: BudgetUser Constants
-    struct User {
+    struct UserInfo {
         static let id = "Id"
         static let email = "Email"
-        static let userName = "UserName"
+        static let userName = "username"
         static let hasRegistered = "HasRegistered"
         static let loginProvider = "LoginProvider"
         static let avatarBase64 = "AvatarBase64"
@@ -59,10 +60,10 @@ struct Constants {
         static let newPassword = "NewPassword"
         static let confirmPassword = "ConfirmPassword"
         static let fullName = "FullName"
-        static let password = "Password"
-        static let token = "Token"
-        static let expiration = "Expiration"
-        static let grantType = "GrantType"
+        static let password = "password"
+        static let token = "access_token"
+        static let expiration = ".expires"
+        static let grantType = "grant_type"
     }
     
 /*
@@ -134,12 +135,6 @@ struct Constants {
         static let authorization = "Authorization"
     }
     
-    // Step 11: Expense Constants
-    struct Auth {
-        static let grantType = "GrantType"
-        static let username = "username"
-        static let password = "password"
-    }
 }
 
 // MARK: - Colors

@@ -32,7 +32,7 @@ class People : NetworkModel {
     var requestType = RequestType.userCheckIn
     
     // empty constructor
-    required init() {}
+    required init() {requestType = .userCaught}
     
     // create an object from JSON
     required init(json: JSON) throws {
@@ -50,8 +50,8 @@ class People : NetworkModel {
     }
     
     init (coordinate: CLLocationCoordinate2D) {
-        self.latitude = coordinate.latitude
         self.longitude = coordinate.longitude
+        self.latitude = coordinate.latitude
         requestType = .userCheckIn
     }
     
@@ -60,6 +60,14 @@ class People : NetworkModel {
         self.radiusInMeters = radiusInMeters
         requestType = .userCatch
     }
+    
+//    init (userId: String, userName: String, created: String, avatarBase64: String) {
+//        self.userId = userId
+//        self.userName = userName
+//        self.created = created
+//        self.avatarBase64 = avatarBase64
+//        requestType = .userCaught
+//    }
     
     // Always return HTTP.GET
     func method() -> Alamofire.HTTPMethod {
@@ -79,7 +87,7 @@ class People : NetworkModel {
         case .userNearby:
             return "/v1/User/Nearby"
         case .userCatch:
-            return "/v1/User/UserCatch"
+            return "/v1/User/Catch"
         case .userCaught:
             return "/v1/User/Caught"
         }
@@ -97,8 +105,8 @@ class People : NetworkModel {
             params[Constants.People.caughtUserId] = userId as AnyObject?
             params[Constants.People.radiusInMeters] = radiusInMeters as AnyObject?
         case .userCheckIn:
-            params[Constants.People.latitude] = latitude as AnyObject?
             params[Constants.People.longitude] = longitude as AnyObject?
+            params[Constants.People.latitude] = latitude as AnyObject?
         case .userCaught:
             break
         }

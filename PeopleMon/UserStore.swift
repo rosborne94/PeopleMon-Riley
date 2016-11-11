@@ -6,7 +6,7 @@
 //  Copyright © 2016 Riley Osborne. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol  UserStoreDelegate: class {
     func userLoggedIn()

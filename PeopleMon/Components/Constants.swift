@@ -17,8 +17,7 @@ struct Constants {
     public static let keychainIdentifier = "PeopleMonKeychain"
     public static let authTokenExpireDate = "authTokenExpireDate"
     public static let authToken = "authToken"
-    static let apiKey = "iOS301november2016"
-    static let apikey = "ApiKey"
+    static let apiKey = "iOSandroid301november2016"
     static let radius = 100.0
     
     // Step 19: Add Notification constant
@@ -29,24 +28,8 @@ struct Constants {
         static let unknownError = "An Unknown Error Has Occurred"
         static let processingError = "There was an error processing the response"
     }
-  /*  {
-    "Id": "string",
-    "Email": "string",
-    "HasRegistered": true,
-    "LoginProvider": "string",
-    "FullName": "string",
-    "AvatarBase64": "string",
-    "LastCheckInLongitude": 0,
-    "LastCheckInLatitude": 0,
-    "LastCheckInDateTime": "2016-11-07T01:11:03.917Z"
-    }
-     {
- "OldPassword": "string",
- "NewPassword": "string",
- "ConfirmPassword": "string"
- }*/
-    // Step 9: BudgetUser Constants
-    struct UserInfo {
+    
+    struct User {
         static let id = "Id"
         static let email = "Email"
         static let userName = "username"
@@ -67,38 +50,6 @@ struct Constants {
         static let grantType = "grant_type"
     }
     
-/*
- {
- "UserId": "string",
- "UserName": "string",
- "AvatarBase64": "string",
- "Longitude": 0,
- "Latitude": 0,
- "Created": "2016-11-07T01:11:03.965Z"
- }
-{
-     "CaughtUserId": "string",
-     "RadiusInMeters": 0
-     }
-     {
-     "Count": 0,
-     "RecipientName": "string",
-     "SenderName": "string",
-     "Messages": [
-     {
-     "MessageId": 0,
-     "Message": "string",
-     "Created": "2016-11-07T01:11:03.994Z",
-     "RecipientUserId": "string",
-     "SenderUserId": "string"
-     }
-     ]
-     }
-     {
-     "RecipientId": "string",
-     "Message": "string"
-     }
- */
  
     // Step 10: Category Constants
     struct People {
@@ -112,27 +63,7 @@ struct Constants {
         
         static let caughtUserId = "CaughtUserId"
         static let radiusInMeters = "RadiusInMeters"
-        
-        static let count = "Count"
-        static let recipientName = "RecipientName"
-        static let senderName = "SenderName"
-        static let messages = "Messages"
-        static let conversationsId = "ConversationsId"
-        static let lastMessage = "LastMessage"
-        static let senderAvatarBase64 = "SenderAvatarBase64"
-        static let recipientAvatarBase64 = "RecipientAvatarBase64"
-        static let messageCount = "MessageCount"
-        
-        static let messageId = "MessageId"
-        static let message = "Message"
-        static let recipientUserId = "RecipientUserId"
-        static let senderUserId = "SenderUserId"
-        
-        static let recipientId = "RecipientId"
-        
-        static let pageSize = "pageSize"
-        static let  pageNumber = "pageNumber"
-        static let id = "id"
+    
         static let authorization = "Authorization"
     }
     

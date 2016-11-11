@@ -9,27 +9,50 @@
 import UIKit
 
 class CaughtViewController: UITableViewController {
-
+    
+    var caught: [People] = [ ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let people = People()
+        WebServices.shared.getObjects(people) { (objects, error) in
+            if let objects = objects {
+                self.caught = objects
+                self.tableView.reloadData()
+            }
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Table View Stuff
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
-
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return caught.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PeopleCell.self)) as! PeopleCell
+        
+        let people = caught[indexPath.row]
+        cell.setupCell(people: people)
+        
+        return cell
+    }
+    
+    @IBAction func done(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

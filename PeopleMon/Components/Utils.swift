@@ -38,4 +38,5 @@ class Utils {
     class func formatNumber(_ amount: Double, prefix: String) -> String {
         return String(format: "\(prefix)$%.2f", abs(amount))
     }
+    
 }

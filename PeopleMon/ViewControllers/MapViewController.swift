@@ -12,13 +12,12 @@ import MapKit
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
-    let updatingLocation = true
     let latitudeDelta = 0.005
     let longitudeDelta = 0.005
+    var updateLocation = true
     
     var annotations: [MapPin] = []
     var overlay: MKOverlay?
-    var location = true
     var timer: Timer?
 
     override func viewDidLoad() {
@@ -31,6 +30,7 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         UserStore.shared.delegate = self
         
+        mapView.mapType = MKMapType.hybrid
         mapView.showsUserLocation = true
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
@@ -90,7 +90,6 @@ class MapViewController: UIViewController {
             self.performSegue(withIdentifier: "PresentLogin", sender: self)
         }
     }
-   
 }
 
 //MARK: - CLLocationManagerDelegte
@@ -100,6 +99,8 @@ extension MapViewController: CLLocationManagerDelegate {
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpanMake(latitudeDelta, longitudeDelta))
         mapView.setRegion(region, animated: true)
+        updateLocation = false
+        locationManager.stopUpdatingLocation()
     }
 }
 //MARK: - MKMapViewController
@@ -132,7 +133,7 @@ extension MapViewController: MKMapViewDelegate {
                     if let error = error {
                         self.present(Utils.createAlert(message: error), animated: true, completion: nil)
                     } else {
-                        self.present(Utils.createAlert(message: "User Caught"), animated: true, completion: nil)
+                        self.present(Utils.createAlert("Good job!", message: "User Caught"), animated: true, completion: nil)
                     }
                 })
             }))

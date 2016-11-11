@@ -112,13 +112,25 @@ extension MapViewController: MKMapViewDelegate {
         
         let reuseId = "pin"
         
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
         if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView!.canShowCallout = false
-            pinView!.animatesDrop = false
         } else {
             pinView!.annotation = annotation
+        }
+        if let mapPin = annotation as? MapPin {
+        if let image = Utils.imageFromString(imageString: mapPin.people?.avatarBase64) {
+            let resizedImage = Utils.resizeImage(image: image)
+            pinView?.image = resizedImage
+            pinView?.layer.cornerRadius = 16
+            pinView?.contentMode = .scaleAspectFill
+            pinView?.clipsToBounds = true
+            pinView?.layer.borderWidth = 2
+            pinView?.layer.borderColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1).cgColor
+        } else {
+            pinView?.image = nil
+        }
         }
         
         return pinView

@@ -17,6 +17,8 @@ class UserStore {
     static let shared = UserStore()
     private init () {}
     
+    var selectedImage: UIImage?
+    
     var user: User? {
         didSet {
             if let _ = user {

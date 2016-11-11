@@ -41,6 +41,7 @@ class User : NetworkModel {
     var password : String?
     var token : String?
     var expiration : String?
+    var image : UIImage?
     
     // Request Type
     enum RequestType {

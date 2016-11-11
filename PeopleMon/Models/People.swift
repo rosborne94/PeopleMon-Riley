@@ -39,9 +39,9 @@ class People : NetworkModel {
         userId = try? json.getString(at: Constants.People.userId)
         userName = try? json.getString(at: Constants.People.userName)
         avatarBase64 = try? json.getString(at: Constants.People.avatarBase64)
+        created = try? json.getString(at: Constants.People.created)
         longitude = try? json.getDouble(at: Constants.People.longitude)
         latitude = try? json.getDouble(at: Constants.People.latitude)
-        created = try? json.getString(at: Constants.People.created)
     }
     
     init(radiusInMeters: Double) {

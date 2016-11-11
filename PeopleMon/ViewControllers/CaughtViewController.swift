@@ -50,9 +50,8 @@ class CaughtViewController: UITableViewController {
         
         return cell
     }
-    
     @IBAction func done(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+
 }

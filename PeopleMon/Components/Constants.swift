@@ -19,6 +19,7 @@ struct Constants {
     public static let authToken = "authToken"
     static let apiKey = "iOSandroid301november2016"
     static let radius = 100.0
+    static let pinImageSize: CGFloat = 16
     
     // Step 19: Add Notification constant
     static let newExpensesFound = "NewExpensesFound"
@@ -66,17 +67,24 @@ struct Constants {
     
         static let authorization = "Authorization"
     }
-    
 }
-
+    enum Images : String {
+        case Avatar
+        
+        func image() -> UIImage {
+            return UIImage(named: self.rawValue)!
+        }
+    
 // MARK: - Colors
 // Step 14: UIColor extension and
+
+    //}
+}
 extension UIColor {
     public class func rgba(red: NSInteger, green: NSInteger, blue: NSInteger, alpha: Float = 1.0) -> UIColor {
         return UIColor(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: CGFloat(alpha))
     }
 }
-
 struct ColorPalette {
     static let PositiveColor = UIColor.rgba(red: 15, green: 181, blue: 46)
     static let NegativeColor = UIColor.rgba(red: 219, green: 31, blue: 31)
@@ -86,3 +94,4 @@ struct ColorPalette {
     static let calendarTodayColor = UIColor.rgba(red: 12, green: 35, blue: 64, alpha: 0.3)
     static let calendarBorderColor = UIColor.rgba(red: 12, green: 35, blue: 64, alpha: 0.8)
 }
+

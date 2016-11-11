@@ -60,7 +60,7 @@
                         <rightBarButtonItems>
                             <barButtonItem style="plain" systemItem="edit" id="ilG-AD-vI3">
                                 <connections>
-                                    <segue destination="12r-3E-ddN" kind="show" id="K5K-5S-12t"/>
+                                    <segue destination="12r-3E-ddN" kind="show" identifier="backSegue" id="K5K-5S-12t"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="action" id="eCf-kV-oKN">
@@ -78,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJ4-Lr-GmJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7.5" y="255.63380281690141"/>
+            <point key="canvasLocation" x="306" y="256"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9yo-kb-9e7">
@@ -94,7 +94,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDe-oC-ZSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-201" y="-483"/>
+            <point key="canvasLocation" x="1110" y="-78"/>
         </scene>
         <!--Caught View Controller-->
         <scene sceneID="46L-DS-pYh">
@@ -112,8 +112,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PeopleMon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjM-V7-aKq">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nxp-YL-hzI">
+                                            <rect key="frame" x="0.0" y="0.0" width="58" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12-25-2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tE-PF-bgK">
+                                            <rect key="frame" x="226" y="12" width="94" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Christian Campbell" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjM-V7-aKq">
+                                            <rect key="frame" x="66" y="-1" width="159" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -122,7 +133,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="dateLabel" destination="0tE-PF-bgK" id="BVQ-dc-TDO"/>
                                     <outlet property="nameLabel" destination="BjM-V7-aKq" id="Y6k-Qc-k7N"/>
+                                    <outlet property="pictureView" destination="Nxp-YL-hzI" id="JcS-N2-YIx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -132,17 +145,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="dOP-Uc-5Io">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="done" id="eoc-jW-OkD">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="8By-WO-2nI">
                             <connections>
-                                <action selector="done:" destination="hLP-Ga-4JV" id="x7j-gY-PnJ"/>
-                                <segue destination="vbb-34-MUd" kind="show" id="vgZ-J9-UXX"/>
+                                <action selector="done:" destination="hLP-Ga-4JV" id="erK-vJ-Ac3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="vbb-34-MUd" kind="show" identifier="backSegue" id="BeK-OV-pWb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1V2-wp-Yif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="592.5" y="-482.74647887323943"/>
+            <point key="canvasLocation" x="1981.875" y="-94.014084507042256"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="D34-bE-5qN">
@@ -174,29 +189,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBt-tD-S8e">
-                                <rect key="frame" x="95" y="315" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Update Name"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEf-NO-E7G">
                                 <rect key="frame" x="103" y="180" width="115" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Update Avatar"/>
+                                <connections>
+                                    <action selector="updateAvatar:" destination="12r-3E-ddN" eventType="touchUpInside" id="ERe-63-RD8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zge-UC-709"/>
+                    <navigationItem key="navigationItem" id="zge-UC-709">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="Pzm-Ks-Xjr">
+                            <connections>
+                                <action selector="save:" destination="12r-3E-ddN" id="Teg-tZ-x7e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="avatar" destination="Nlb-oK-W4u" id="KPI-oK-W4O"/>
-                        <outlet property="nameField" destination="fJJ-rr-l9X" id="Z7U-hw-NPq"/>
-                        <outlet property="nameLabel" destination="7Ed-ru-Vjy" id="uft-2b-NQv"/>
+                        <outlet property="emailLabel" destination="7Ed-ru-Vjy" id="rzf-FN-DWp"/>
+                        <outlet property="imageView" destination="Nlb-oK-W4u" id="A44-rY-8Qq"/>
+                        <outlet property="nameField" destination="fJJ-rr-l9X" id="lKV-fA-z55"/>
+                        <segue destination="vbb-34-MUd" kind="show" identifier="backSegue" id="rUk-lp-0Nt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxG-8k-SJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="716" y="256"/>
+            <point key="canvasLocation" x="1303" y="907"/>
         </scene>
         <!--Login-->
         <scene sceneID="shN-aV-AsF">
@@ -208,7 +228,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vgZ-J9-UXX"/>
+        <segue reference="BeK-OV-pWb"/>
         <segue reference="Lu4-1L-USV"/>
     </inferredMetricsTieBreakers>
 </document>
